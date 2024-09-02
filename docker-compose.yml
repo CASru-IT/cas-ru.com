@@ -1,0 +1,15 @@
+services:
+  web:
+    container_name: web
+    build:
+      context: . # Dockerfileやビルドに必要なファイルが存在するディレクトリのパス
+      dockerfile: Dockerfile # ビルドに使用するDockerfileの名前
+    restart: always # コンテナが異常終了した場合に自動的に再起動
+    ports:
+      - 3000:3000 # ホストのポート3000をコンテナのポート3000にマッピング
+    networks:
+      - web_network # コンテナが参加するネットワークの名前
+
+networks:
+  web_network:
+    driver: bridge
