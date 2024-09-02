@@ -17,7 +17,8 @@
 3. [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)拡張機能をインストール
 4. このレポジトリをクローン`git clone https://github.com/CASru-IT/cas-ru.com.git`
 5. Visual Studio Codeでこのレポジトリを開く
-6. コマンドパレット（Ctrl+Shift+p）から`Reopen in Container`
+6. `sample.env`を参考に`.env`ファイルを作成し、環境変数を設定
+7. コマンドパレット（Ctrl+Shift+p）から`Reopen in Container`
 
 ## 本番環境のセットアップ
 
