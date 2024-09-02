@@ -1,0 +1,32 @@
+services:
+  web:
+    container_name: web
+    user: "node"
+
+    build:
+      context: . # ビルドに必要なファイルが存在するディレクトリのパスを指定
+      dockerfile: Dockerfile.dev # ビルドに使用するDockerfileの名前を指定
+
+    volumes:
+      # ホストのディレクトリとコンテナの/workspaceをマウント
+      - type: bind
+        source: .
+        target: /workspace/web
+
+      - type: volume
+        source: node_modules
+        target: /workspace/web/node_modules
+
+    ports:
+      - 127.0.0.1:3000:3000 # ホストのポート3000をコンテナのポート3000にマッピング
+
+    networks:
+      - web_network # コンテナが参加するネットワークの名前
+
+volumes:
+  node_modules:
+    name: web_node_modules
+
+networks:
+  web_network:
+    driver: bridge
