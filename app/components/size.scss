@@ -1,0 +1,46 @@
+// フォントサイズからline-heightを計算するfunction
+// $font-size:実数
+// @return:実数
+@function calc-line-height($font-size){
+  $i:1;
+  @while $i*4<=$font-size{
+    $i:$i+1;
+  }
+  @return $i*4/$font-size;
+}
+
+// 数字からfont-sizeとline-heightを設定するmixin
+// $n:非負整数
+// @return:font-sizeとline-height
+@mixin font-size-n($n){
+  $font-size:16*8/($n+3);
+  font-size:#{$font-size}px;
+  line-height:calc-line-height($font-size);
+}
+
+// 単語からfont-sizeとline-heightを設定するmixin
+// $string:main|small|tiny
+// @return:font-sizeとline-height
+@mixin font-size-string($string){
+  $font-size-main:16;
+  $font-size-small:12;
+  $font-size-tiny:8;
+  $font-size:0;
+
+  @if $string=="main"{
+    $font-size:$font-size-main;
+  }@else if $string=="small"{
+    $font-size:$font-size-small;
+  }@else if $string=="tiny"{
+    $font-size:$font-size-tiny;
+  }
+  font-size: #{$font-size}px;
+  line-height:calc-line-height($font-size);
+}
+
+// 数字から余白の大きさを計算するfunction
+// $n:非負整数
+// @return:非負整数px
+@function white-space($n){
+  @return #{$n*4}px;
+}
