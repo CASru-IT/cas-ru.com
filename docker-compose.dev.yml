@@ -1,0 +1,56 @@
+services:
+  web:
+    container_name: web
+    user: "node"
+
+    build:
+      context: . # ビルドに必要なファイルが存在するディレクトリのパスを指定
+      dockerfile: Dockerfile.dev # ビルドに使用するDockerfileの名前を指定
+
+    volumes:
+      # ホストのディレクトリとコンテナの/workspaceをマウント
+      - type: bind
+        source: .
+        target: /workspace/web
+
+      - type: volume
+        source: node_modules
+        target: /workspace/web/node_modules
+
+    ports:
+      - 127.0.0.1:3000:3000 # ホストのポート3000をコンテナのポート3000にマッピング
+
+    networks:
+      - cas-ru.com_network # コンテナが参加するネットワークの名前
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: postgres:16.4
+    hostname: db
+    env_file:
+      - .env
+    networks:
+      - cas-ru.com_network
+    environment:
+      - TZ=Asia/Tokyo
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+
+volumes:
+  node_modules:
+    name: web_node_modules
+  db_data:
+
+
+networks:
+  cas-ru.com_network:
+    driver: bridge
