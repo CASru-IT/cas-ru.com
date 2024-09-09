@@ -29,13 +29,15 @@
 
   @if $string=="main"{
     $font-size:$font-size-main;
+    line-height: 32px;
   }@else if $string=="small"{
     $font-size:$font-size-small;
+    line-height: calc-line-height($font-size);
   }@else if $string=="tiny"{
     $font-size:$font-size-tiny;
+    line-height: calc-line-height($font-size);
   }
   font-size: #{$font-size}px;
-  line-height:calc-line-height($font-size);
 }
 
 // 数字から余白の大きさを計算するfunction
