@@ -38,9 +38,11 @@ export default function Button({
       );
     } else {
       return (
-        <Link href={action} className="buttonContainer">
-          <BeforeIcon />
-          {children}
+        <Link href={action} className={style.buttonContainer}>
+          <div className={style.buttonInner}>
+            <BeforeIcon />
+            {children}
+          </div>
         </Link>
       );
     }
@@ -49,7 +51,6 @@ export default function Button({
       <button onClick={action} className={style.buttonContainer}>
         <BeforeIcon />
         <div className={style.buttonInner}>{children}</div>
-        {external ? <ExternalLink className={style.afterIcon} /> : null}
       </button>
     );
   }
