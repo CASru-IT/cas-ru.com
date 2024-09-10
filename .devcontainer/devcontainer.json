@@ -51,6 +51,9 @@
 					"typescript",
 					"typescriptreact"
 				],
+				"css.validate": false,
+				"less.validate": false,
+				"scss.validate": false,
 				// VSCodeのデフォルトのフォーマッターを無効に
 				"javascript.format.enable": false,
 				"typescript.format.enable": false
@@ -66,7 +69,11 @@
 				"mhutchie.git-graph", // Git Graph
 				"mosapride.zenkaku", // zenkaku
 				"shardulm94.trailing-spaces", // Trailing Spaces
-				"christian-kohler.path-intellisense" // Path Intellisense
+				"christian-kohler.path-intellisense", // Path Intellisense
+				"ms-azuretools.vscode-docker", // Docker
+				"usernamehw.errorlens", // Error Lens
+				"ms-vsliveshare.vsliveshare", // Live Share
+				"stylelint.vscode-stylelint" // Stylelint
 			]
 		}
 	}
