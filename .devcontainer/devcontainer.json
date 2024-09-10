@@ -73,7 +73,6 @@
 				"ms-azuretools.vscode-docker", // Docker
 				"usernamehw.errorlens", // Error Lens
 				"ms-vsliveshare.vsliveshare", // Live Share
-				"stylelint.vscode-stylelint" // Stylelint
 			]
 		}
 	}
