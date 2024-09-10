@@ -1,23 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[postcss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "edito.defaultFormatter": "esbenp.prettier-vscode",
   "[css]": {
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
@@ -45,5 +28,9 @@
   },
   "javascript.format.enable": false,
   "typescript.format.enable": false,
-  "stylelint.validate": ["css", "scss", "less"]
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "less"
+  ]
 }
