@@ -1,67 +1,74 @@
-@import "../size.scss";
-.buttonContainer{
+@import "../size";
+
+.buttonContainer {
   @include font-size-n(6);
-  line-height: 1;
+
+  position: relative;
   display: block;
   width: fit-content;
   height: 28px;
+  line-height: 1;
   text-decoration: none;
-  position: relative;
-  &::before{
-    content: "";
+
+  &::before {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: -1;
     display: block;
     width: 100%;
     height: 26px;
-    position: absolute;
+    content: "";
     border: 1px solid black;
     border-radius: 4px;
-    top:2px;
-    left:2px;
-    z-index: -1;
   }
-  &:active{
+
+  &:active {
     color: black;
-    &::before{
+
+    &::before {
       display: none;
     }
-    .buttonInner{
+
+    .buttonInner {
       position: relative;
-      height: 26px;
       top: 2px;
       left: 2px;
+      height: 26px;
     }
   }
 }
 
-.icon{
-  display: inline-block;
+.icon {
   position: relative;
-  top:1px;
-  stroke-width: 1px;
+  top: 1px;
+  display: inline-block;
   color: black;
+  stroke-width: 1px;
 }
 
-.beforeIcon{
-  height: 16px;
+.beforeIcon {
   width: 16px;
+  height: 16px;
+
   @extend .icon;
 }
 
-.afterIcon{
-  height: 10px;
+.afterIcon {
   width: 10px;
+  height: 10px;
   margin-left: 2px;
   color: gray;
   stroke-width: 2px;
+
   @extend .icon;
 }
 
-
-.buttonInner{
-  border: 1px solid black;
-  background-color: white;
+.buttonInner {
+  display: inline-block;
   height: 26px;
   padding: 4px;
+  background-color: white;
+  border: 1px solid black;
   border-radius: 4px;
-  display: inline-block;
 }
