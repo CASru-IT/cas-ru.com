@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
-import "./globals.scss";
 import "ress";
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
