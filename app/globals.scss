@@ -1,6 +1,7 @@
-@import "./components/color.scss";
+@import "./components/color";
+
 body {
   font-weight: 300;
-  background-color: $BackGroundColor;
   color: $ForeGroundColor;
+  background-color: $BackGroundColor;
 }
