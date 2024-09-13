@@ -12,49 +12,13 @@
 			"installZsh": true,
 			"configureZshAsDefaultShell": true,
 			"installOhMyZsh": true,
-			"upgradePackages": true,
+			"upgradePackages": false,
 			"username": "node"
 		}
 	},
 	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 	"customizations": {
 		"vscode": {
-			"settings": {
-				// ファイル保存時にフォーマット処理を実行
-				"editor.formatOnSave": true,
-				// 各ファイルのデフォルトのフォーマッターを指定
-				"[javascript]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[javascriptreact]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[typescript]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[typescriptreact]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[json]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[postcss]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[css]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				// ESLintの対象を設定
-				"eslint.validate": [
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact"
-				],
-				// VSCodeのデフォルトのフォーマッターを無効に
-				"javascript.format.enable": false,
-				"typescript.format.enable": false
-			},
 			// 拡張機能を追加
 			"extensions": [
 				"dbaeumer.vscode-eslint", // ESLint
@@ -66,7 +30,8 @@
 				"mhutchie.git-graph", // Git Graph
 				"mosapride.zenkaku", // zenkaku
 				"shardulm94.trailing-spaces", // Trailing Spaces
-				"christian-kohler.path-intellisense" // Path Intellisense
+				"christian-kohler.path-intellisense", // Path Intellisense
+				"stylelint.vscode-stylelint" // stylelint
 			]
 		}
 	}
