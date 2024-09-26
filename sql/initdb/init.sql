@@ -1,14 +1,8 @@
-CREATE DATABASE cas-ru_db;
-
-\c cas-ru_db;
-
-CREATE TABLE users (
+CREATE TABLE users2 (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
-GRANT ALL PRIVILEGES ON users TO dugite;
-
-INSERT INTO users (name, email, password) VALUES ('test', 'test@gmail.com', 'password');
+INSERT INTO users2 (name, email, password) VALUES ('test2', 'test@gmail.com', 'password');
