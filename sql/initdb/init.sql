@@ -38,3 +38,18 @@ CREATE TABLE verification_tokens (
     expires TIMESTAMP NOT NULL,
     PRIMARY KEY (identifier, token)
 );
+
+-- 記事データ保存用のテーブル
+CREATE TABLE articles (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    body TEXT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- 画像データ保存用のテーブル
+CREATE TABLE images (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    data BYTEA
+);
