@@ -43,13 +43,13 @@ services:
       - 5432:5432
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./sql:/docker-entrypoint-initdb.d
+      - ./sql/initdb:/docker-entrypoint-initdb.d
 
 volumes:
   node_modules:
     name: web_node_modules
   db_data:
-
+    name: db_data
 
 networks:
   cas-ru.com_network:
