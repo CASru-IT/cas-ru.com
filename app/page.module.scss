@@ -1,0 +1,81 @@
+@import "./components/size.scss";
+@import "./components/color.scss";
+.heading1 {
+  @include font-size-n(1);
+  margin-top: 76px;
+}
+.heading2 {
+  @include font-size-n(2);
+  &__mainText {
+    @include font-size-n(2);
+    position: relative;
+    &::after {
+      content: "◆◆◆";
+      position: absolute;
+      right: 0;
+      font-size: 10px;
+      letter-spacing: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__subText {
+    @include font-size-string("small");
+  }
+}
+
+.section {
+  width: 83.33333333%;
+  margin: 24px auto;
+  @include font-size-string("main");
+  &__fullScreen {
+    height: 100vh;
+    padding: 8.33333333%;
+    margin: 0 auto;
+    @include font-size-string("main");
+    &__gradation {
+      @extend .section__fullScreen;
+      background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 4%,
+        rgba(255, 255, 255, 1) 32%
+      );
+    }
+    &__black {
+      @extend .section__fullScreen;
+      background-color: $ForeGroundColor;
+      color: $BackGroundColor;
+    }
+  }
+}
+
+.paragraph {
+  margin-top: 16px;
+  &__enphasis {
+    @include font-size-n(3);
+    margin-top: 32px;
+  }
+}
+.buttonGroup {
+  &__center {
+    margin-top: 42px;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__vertical {
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    &__item {
+      margin-top: 8px;
+    }
+  }
+}
+.fontSize1 {
+  @include font-size-n(1);
+}
+.fontSize3 {
+  @include font-size-n(3);
+}
