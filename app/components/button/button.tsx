@@ -8,11 +8,13 @@ export default function Button({
   beforeIcon: BeforeIconName,
   external,
   action,
+  className = "",
 }: Readonly<{
   children: React.ReactNode;
   beforeIcon?: "Twitter" | "Instagram" | "GitHub";
   external?: boolean;
   action: (() => void) | string;
+  className?: string;
 }>) {
   function BeforeIcon(): React.ReactNode {
     switch (BeforeIconName) {
@@ -28,7 +30,11 @@ export default function Button({
   if (typeof action === "string") {
     if (external) {
       return (
-        <a href={action} className={style.buttonContainer} target="_blank">
+        <a
+          href={action}
+          className={`${className} ${style.buttonContainer}`}
+          target="_blank"
+        >
           <div className={style.buttonInner}>
             <BeforeIcon />
             {children}
@@ -38,7 +44,7 @@ export default function Button({
       );
     } else {
       return (
-        <Link href={action} className={style.buttonContainer}>
+        <Link href={action} className={`${className} ${style.buttonContainer}`}>
           <div className={style.buttonInner}>
             <BeforeIcon />
             {children}
@@ -48,7 +54,10 @@ export default function Button({
     }
   } else if (typeof action === "function") {
     return (
-      <button onClick={action} className={style.buttonContainer}>
+      <button
+        onClick={action}
+        className={`${className} ${style.buttonContainer}`}
+      >
         <BeforeIcon />
         <div className={style.buttonInner}>{children}</div>
       </button>
