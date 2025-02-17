@@ -54,6 +54,22 @@ export default function Home() {
           <div className={style.heading2__mainText}>Articles</div>
           <div className={style.heading2__subText}>記事</div>
         </h2>
+        <div className={style.articles}>
+          <section className={style.articleItem}>
+            <div className={style.articleItem__image}></div>
+            <div className={style.articleItem__description}>
+              <h3 className={style.articleItem__title}>Title</h3>
+              <time className={style.articleItem__time} dateTime="2025-02-02">
+                2025年2月2日
+              </time>
+              <p className={style.articleItem__abstract}>
+                sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text
+                sample text sample text sample text sample text sample text
+              </p>
+            </div>
+          </section>
+        </div>
         <div className={style.buttonGroup__center}>
           <Button action={"/articles"}>Articles</Button>
         </div>

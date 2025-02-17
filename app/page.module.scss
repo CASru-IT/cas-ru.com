@@ -79,3 +79,43 @@
 .fontSize3 {
   @include font-size-n(3);
 }
+.articles {
+  margin-top: 12px;
+}
+.articleItem {
+  display: flex;
+  align-items: flex-start;
+  height: 75px;
+  overflow: hidden;
+  &__description {
+    height: 100%;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 16px;
+      width: 100%;
+      background: linear-gradient(to top, $BackGroundColor, transparent);
+      pointer-events: none;
+    }
+  }
+  &__title {
+    @include font-size-n(4);
+  }
+  &__time {
+    @include font-size-string("tiny");
+    display: block;
+  }
+  &__abstract {
+    @include font-size-string("small");
+  }
+  &__image {
+    width: 100px;
+    aspect-ratio: 4/3;
+    flex: none;
+    background-color: gray;
+    margin-right: 8px;
+  }
+}
