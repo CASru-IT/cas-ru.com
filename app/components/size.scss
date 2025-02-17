@@ -23,6 +23,20 @@
 
   font-size: #{$font-size}px;
   line-height: calc-line-height($font-size);
+
+  @if $n== 1 {
+    font-weight: 400;
+  } @else if $n== 2 {
+    font-weight: 400;
+  } @else if $n== 3 {
+    font-weight: 300;
+  } @else if $n== 4 {
+    font-weight: 300;
+  } @else if $n== 5 {
+    font-weight: 300;
+  } @else {
+    font-weight: 500;
+  }
 }
 
 // 単語からfont-sizeとline-heightを設定するmixin
