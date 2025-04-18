@@ -2,6 +2,8 @@ services:
   web:
     container_name: web
     user: "node"
+    env_file:
+      - .env
 
     build:
       context: . # ビルドに必要なファイルが存在するディレクトリのパスを指定

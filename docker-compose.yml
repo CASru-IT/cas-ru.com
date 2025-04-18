@@ -1,6 +1,8 @@
 services:
   web:
     container_name: web
+    env_file:
+      - .env
     build:
       context: . # Dockerfileやビルドに必要なファイルが存在するディレクトリのパス
       dockerfile: Dockerfile # ビルドに使用するDockerfileの名前
