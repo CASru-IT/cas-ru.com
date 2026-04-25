@@ -1,22 +1,41 @@
-FROM node:20-bullseye-slim AS base
+FROM node:24-bookworm-slim AS base
 
-FROM base AS builder
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
-WORKDIR /workspace/web
 
-RUN apt-get update && apt-get upgrade -y
-COPY package.json yarn.lock* ./
-RUN yarn --frozen-lockfile
+FROM base AS dependencies
 
-COPY app/ ./app
-COPY public/ ./public
-COPY tsconfig.json *.mjs ./
+WORKDIR /workspace
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN --mount=type=cache,target=/pnpm/store pnpm install --frozen-lockfile
+
+
+FROM dependencies AS builder
+
+COPY ./src ./src
+COPY ./public ./public
+COPY ./tsconfig.json ./next.config.ts ./postcss.config.mjs ./
 
 # Next.jsによってテレメトリデータを収集するのを無効にする
 ARG NEXT_TELEMETRY_DISABLED=1
 ENV NEXT_TELEMETRY_DISABLED=$NEXT_TELEMETRY_DISABLED
 
-RUN  yarn build
+ENV NODE_ENV=production
+RUN  pnpm run build
+
+
+FROM dependencies AS dev
+
+USER node
+COPY . .
+ENV NODE_ENV=development
+EXPOSE 3000
+
+CMD [ "pnpm", "run", "dev" ]
+
 
 FROM base AS runner
 
@@ -24,16 +43,16 @@ WORKDIR /workspace/web
 
 USER node
 
-COPY --from=builder /workspace/web/public ./public
+COPY --from=builder --chown=node:node /workspace/public ./public
 
 # 自動的に出力トレースを活用することで、イメージサイズを削減する
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=node:node /workspace/web/.next/standalone ./
-COPY --from=builder --chown=node:node /workspace/web/.next/static ./.next/static
+# https://nextjs.org/docs/app/api-reference/config/next-config-js/output
+COPY --from=builder --chown=node:node /workspace/.next/standalone ./
+COPY --from=builder --chown=node:node /workspace/.next/static ./.next/static
 
 # Next.jsによってテレメトリデータを収集するのを無効にする
-ENV NEXT_TELEMETRY_DISABLED=$NEXT_TELEMETRY_DISABLED
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# 注意: ポートのマッピングはdocker-composeで行うため、設定しない
+EXPOSE 3000
 
 CMD ["node", "server.js"]

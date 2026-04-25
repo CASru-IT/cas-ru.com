@@ -1,17 +1,15 @@
 {
   "name": "cas-ru.com",
-  "dockerComposeFile": ["../docker-compose.dev.yml", "docker-compose.yml"],
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "../docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
   "service": "web",
-  "workspaceFolder": "/workspace/web",
+  "workspaceFolder": "/workspace",
   // コンテナに追加する機能
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
-      "configureZshAsDefaultShell": true,
-      "installOhMyZsh": true,
-      "upgradePackages": false,
-      "username": "node"
-    }
+    "ghcr.io/devcontainers/features/git:1": {}
   },
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "customizations": {
@@ -49,25 +47,13 @@
           "typescriptreact"
         ],
         // VSCodeのデフォルトのフォーマッターを無効に
-        "javascript.format.enable": false,
-        "typescript.format.enable": false
+        "js.format.enable": false,
+        "ts.format.enable": false
       },
       // 拡張機能を追加
       "extensions": [
         "dbaeumer.vscode-eslint", // ESLint
-        "esbenp.prettier-vscode", // Prettier
-        "formulahendry.auto-rename-tag", // Auto Rename Tag
-        "eamodio.gitlens", // GitLens
-        "streetsidesoftware.code-spell-checker", // Code Spell Checker
-        "yzhang.dictionary-completion", // Dictionary Completion
-        "mhutchie.git-graph", // Git Graph
-        "mosapride.zenkaku", // zenkaku
-        "shardulm94.trailing-spaces", // Trailing Spaces
-        "christian-kohler.path-intellisense", // Path Intellisense
-        "ms-azuretools.vscode-docker", // Docker
-        "usernamehw.errorlens", // Error Lens
-        "ms-vsliveshare.vsliveshare", // Live Share
-        "stylelint.vscode-stylelint" // stylelint
+        "esbenp.prettier-vscode" // Prettier
       ]
     }
   }
