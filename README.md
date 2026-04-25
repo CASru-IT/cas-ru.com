@@ -22,9 +22,8 @@
 2. [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)拡張機能をインストール
 3. このレポジトリをクローン`git clone https://github.com/CASru-IT/cas-ru.com.git`
 4. Visual Studio Codeでこのレポジトリを開く
-5. `sample.env`を参考に`.env`ファイルを作成し、環境変数を設定
-6. コマンドパレット（Ctrl+Shift+p）から`Reopen in Container`
-7. `localhost:3000`にアクセス
+5. コマンドパレット（Ctrl+Shift+p）から`Reopen in Container`
+6. `localhost:3000`にアクセス
 
 `docker-compose.yml`を`docker-compose.dev.yml`で上書きして開発環境を構築している。devcontainerではさらに`.devcontainer/docker-compose.yml`で上書きしてコンテナーが落ちないようにしている。
 
@@ -37,5 +36,4 @@
 
 1. [Docker](https://www.docker.com/)をインストール
 2. このレポジトリをクローン`git clone https://github.com/CASru-IT/cas-ru.com.git`
-3. `sample.env`を参考に`.env`ファイルを作成し、環境変数を設定
-4. `docker-compose up -d`でコンテナーを起動
+3. `docker-compose up -d`でコンテナーを起動
