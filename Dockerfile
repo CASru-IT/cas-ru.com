@@ -9,7 +9,7 @@ FROM base AS dependencies
 
 WORKDIR /workspace
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN --mount=type=cache,target=/pnpm/store pnpm install --frozen-lockfile
 
 
@@ -42,7 +42,7 @@ WORKDIR /workspace/web
 
 USER node
 
-COPY --from=builder /workspace/public ./public
+COPY --from=builder --chown=node:node /workspace/public ./public
 
 # 自動的に出力トレースを活用することで、イメージサイズを削減する
 # https://nextjs.org/docs/app/api-reference/config/next-config-js/output
