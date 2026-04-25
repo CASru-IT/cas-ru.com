@@ -29,6 +29,7 @@ RUN  pnpm run build
 
 FROM dependencies AS dev
 
+USER node
 COPY . .
 ENV NODE_ENV=development
 EXPOSE 3000
