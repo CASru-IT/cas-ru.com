@@ -1,5 +1,24 @@
 import Image from "next/image";
 
+const Section = ({
+  title,
+  children,
+  id,
+}: {
+  title: string;
+  children: React.ReactNode;
+  id?: string;
+}) => {
+  return (
+    <section id={id} className="max-w-2xl mx-auto px-4 py-8 bg-white mb-8">
+      <h2 className="text-center mx-auto w-2/3 border-b-2 border-black text-3xl font-medium p-2 mb-2">
+        {title}
+      </h2>
+      <div className="p-2">{children}</div>
+    </section>
+  );
+};
+
 export default function Home() {
   return (
     <>
