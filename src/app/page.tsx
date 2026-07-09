@@ -1,4 +1,6 @@
+import { getAllGroupName, getGroupInfo } from "@/utils/groupIntroduction";
 import Image from "next/image";
+import Link from "next/link";
 
 const Section = ({
   title,
@@ -49,6 +51,30 @@ export default function Home() {
         </ul>
         <Section title="サークル概要" id="about">
           CASるは、イラスト/音楽/ゲームなどの創作、アニメ視聴/ゲームプレイ/TRPGセッションなどが活動の多くを占めている。メンバーは総勢200人を超え、内部は「班」と呼ばれる複数の職能別の小組織から成り立っています。班では同じような興味で集まった仲間とともに班のテーマに沿って自由に活動します。
+        </Section>
+        <Section title="班紹介" id="introduction">
+          CASるは200人を超える巨大なサークルです。職能集団である班に分かれて活動しています。
+          <div className="mx-auto flex flex-wrap justify-center gap-4 p-4">
+            {getAllGroupName().map((groupName) => {
+              const groupInfo = getGroupInfo(groupName);
+              return (
+                <div key={groupName}>
+                  <Link href={`/groups/${groupName}`} className="">
+                    <Image
+                      src={groupInfo.icon}
+                      alt={groupInfo.name}
+                      className="mx-auto w-28 h-28 object-cover aspect-auto rounded-lg"
+                      width={100}
+                      height={100}
+                    />
+                    <div className="text-lg text-center text-nowrap">
+                      {groupInfo.name}
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </Section>
       </div>
     </>
