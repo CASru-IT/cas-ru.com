@@ -76,6 +76,14 @@ export default function Home() {
             })}
           </div>
         </Section>
+        <Section title="活動場所" id="location">
+          <div className="flex justify-center">
+            主に角間キャンパス北地区大学会館第4・5中会議室（通称4・5中）で活動しています。
+            <br />
+            他にもサークル棟やオンライン（Discordサーバー）でも活動しています。
+            {/* 活動場所を説明する画像を置く */}
+          </div>
+        </Section>
       </div>
     </>
   );
