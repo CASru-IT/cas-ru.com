@@ -1,6 +1,7 @@
 import { getAllGroupName, getGroupInfo } from "@/utils/groupIntroduction";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/button";
 
 const Section = ({
   title,
@@ -82,6 +83,53 @@ export default function Home() {
             <br />
             他にもサークル棟やオンライン（Discordサーバー）でも活動しています。
             {/* 活動場所を説明する画像を置く */}
+          </div>
+        </Section>
+        <Section title="入会方法" id="membership">
+          <div className="flex justify-center gap-2">
+            <div>
+              <div className="text-9xl font-extrabold relative top-8 right-4 text-gray-300 z-0">
+                1
+              </div>
+              <h3 className="text-lg font-bold relative z-10">
+                新歓サーバーに参加
+              </h3>
+              <p>
+                CASるはDiscordとういチャットアプリで活動しています。まずは新歓サーバーで活動の雰囲気を掴もう！
+              </p>
+            </div>
+            <div>
+              <div className="text-9xl font-extrabold relative top-8 right-4 text-gray-300 z-0">
+                2
+              </div>
+              <h3 className="text-lg font-bold relative z-10">
+                新歓サーバー内で交流
+              </h3>
+              <p>
+                ビンゴ大会等の新歓イベント情報も流れてくる。CASるの日常であるボイスチャットでの雑談も！
+              </p>
+            </div>
+            <div>
+              <div className="text-9xl font-extrabold relative top-8 right-4 text-gray-300 z-0">
+                3
+              </div>
+              <h3 className="text-lg font-bold relative z-10">
+                総会で会費支払い/入会
+              </h3>
+              <p>
+                5月頃に行われる新歓総会にて、年会費¥5,000を支払って入会完了！
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center mt-4">
+            <Button
+            href="https://discord.gg/57rZ3rM6BE"
+            target="_blank"
+            rel="noopener noreferrer"
+as={Link}
+          >
+            新歓サーバーに参加
+          </Button>
           </div>
         </Section>
       </div>
