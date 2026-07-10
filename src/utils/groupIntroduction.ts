@@ -12,6 +12,24 @@ export const GROUP_INTRODUCTION_DIR = path.join(
   "src/groupIntroduction",
 );
 
+type GroupIntroductionFrontMatter = {
+  name: string;
+  icon: string;
+  header: string;
+};
+
+function isGroupIntroductionFrontMatter(
+  data: unknown,
+): data is GroupIntroductionFrontMatter {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "name" in data &&
+    "icon" in data &&
+    "header" in data
+  );
+}
+
 export function getAllGroupName() {
   const files = fs.readdirSync(GROUP_INTRODUCTION_DIR);
   if (files) {
@@ -30,7 +48,11 @@ export function getGroupInfo(groupName: GroupNameType) {
   const file = fs.readFileSync(
     path.join(GROUP_INTRODUCTION_DIR, `${groupName}.md`),
   );
-  return matter(file).data;
+  const frontMatter = matter(file).data;
+  if (!isGroupIntroductionFrontMatter(frontMatter)) {
+    throw new Error(`Invalid front matter for group: ${groupName}`);
+  }
+  return frontMatter;
 }
 
 export async function getGroupContent(groupName: GroupNameType) {
