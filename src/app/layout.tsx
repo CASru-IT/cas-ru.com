@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import "./globals.css";
 
 const notoSansVariable = Noto_Sans_JP({ weight: "variable" });
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className="font-light">
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
