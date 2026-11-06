@@ -56,7 +56,7 @@ export default function Home() {
         </Section>
         <Section title="班紹介" id="introduction">
           CASるは200人を超える巨大なサークルです。職能集団である班に分かれて活動しています。
-          <div className="mx-auto flex flex-wrap gap-4 p-4">
+          <div className="mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-4 p-4">
             {getAllGroupName().map((groupName) => {
               const groupInfo = getGroupInfo(groupName);
               return (
@@ -65,7 +65,7 @@ export default function Home() {
                     <Image
                       src={groupInfo.icon}
                       alt={groupInfo.name}
-                      className="mx-auto w-28 h-28 object-cover aspect-auto rounded-lg"
+                      className="mx-auto w-full object-cover aspect-square rounded-lg"
                       width={100}
                       height={100}
                     />
