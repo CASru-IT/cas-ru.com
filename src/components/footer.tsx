@@ -34,7 +34,13 @@ export default function Footer() {
         </li>
         <li className="w-full max-w-54">
           <h3 className="font-bold text-xl text-center mb-2">
-            <Link href="/about">CASる紹介</Link>
+            <Link
+              href="https://wiki.cas-ru.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Wiki
+            </Link>
           </h3>
           <ul></ul>
         </li>
