@@ -3,3 +3,41 @@
 body {
   font-family: "Noto Sans JP", sans-serif;
 }
+
+@theme {
+  --animate-horizontal-scroll: sinSwipe 60s infinite;
+  --animate-horizontal-scroll-reverse: reverseSinSwipe 60s infinite;
+
+  @keyframes sinSwipe {
+    0% {
+      transform: translateX(-100px);
+      animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+    }
+
+    50% {
+      transform: translateX(100px);
+      animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+    }
+
+    100% {
+      transform: translateX(-100px);
+    }
+  }
+
+  @keyframes reverseSinSwipe {
+    0% {
+      transform: translateX(100px);
+      animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+    }
+
+    50% {
+      transform: translateX(-100px);
+      animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+    }
+
+    100% {
+      transform: translateX(100px);
+    }
+  }
+
+}

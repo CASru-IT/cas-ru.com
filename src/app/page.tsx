@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/button";
 import { InstagramIcon, TwitterIcon, MailIcon } from "@/components/icons";
+import path from "path";
+import fs from "fs";
+import BackgroundImages from "./components/backgroundImages";
 
 const Section = ({
   title,
@@ -14,7 +17,7 @@ const Section = ({
   id?: string;
 }) => {
   return (
-    <section id={id} className="max-w-2xl mx-auto px-4 py-8 bg-white mb-8">
+    <section id={id} className="max-w-2xl mx-auto px-4 py-8 bg-white my-8">
       <h2 className="text-center mx-auto w-2/3 border-b-2 border-black text-3xl font-medium p-2 mb-2">
         {title}
       </h2>
@@ -23,9 +26,20 @@ const Section = ({
   );
 };
 
+const BACKGROUND_IMAGE_DIR = path.join(process.cwd(), "public", "background");
+
+const getBackgroundImages = () => {
+  const files = fs.readdirSync(BACKGROUND_IMAGE_DIR);
+  const imageFiles = files.filter((fileName) =>
+    fileName.match(/\.(jpg|jpeg|png|gif)$/i),
+  );
+  return imageFiles;
+};
+
 export default function Home() {
   return (
     <>
+      <BackgroundImages imageFiles={getBackgroundImages()} />
       <div>
         <Image
           src="/hero.png"
