@@ -2,6 +2,7 @@ import { getAllGroupName, getGroupInfo } from "@/utils/groupIntroduction";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/button";
+import { InstagramIcon, TwitterIcon, MailIcon } from "@/components/icons";
 
 const Section = ({
   title,
@@ -131,6 +132,43 @@ export default function Home() {
               新歓サーバーに参加
             </Button>
           </div>
+        </Section>
+        <Section title="連絡先" id="contact">
+          <ul className="w-fit mx-auto">
+            <li>
+              <TwitterIcon className="inline-block mr-2" />
+              <Link
+                href="https://x.com/casrunahibi"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-blue-500"
+              >
+                CASるな日々　金沢大学公認サークル
+              </Link>
+            </li>
+            <li>
+              <InstagramIcon className="inline-block mr-2" />
+              <Link
+                href="https://www.instagram.com/cas_ru.inst_hibi/"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-blue-500"
+              >
+                CASるな日々(金沢大学公認サークル)
+              </Link>
+            </li>
+            <li>
+              <MailIcon className="inline-block mr-2" />
+              <Link
+                href="maileto:cas_executive2026@googlegroups.com"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-blue-500"
+              >
+                cas_executive2026@googlegroups.com
+              </Link>
+            </li>
+          </ul>
         </Section>
       </div>
     </>
