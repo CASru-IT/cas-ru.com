@@ -86,8 +86,8 @@ export default function Home() {
           </div>
         </Section>
         <Section title="入会方法" id="membership">
-          <div className="flex justify-center gap-2">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-2 w-fit mx-auto">
+            <div className="max-w-2xs">
               <div className="text-9xl font-extrabold relative top-8 right-4 text-gray-300 z-0">
                 1
               </div>
@@ -98,7 +98,7 @@ export default function Home() {
                 CASるはDiscordとういチャットアプリで活動しています。まずは新歓サーバーで活動の雰囲気を掴もう！
               </p>
             </div>
-            <div>
+            <div className="max-w-2xs">
               <div className="text-9xl font-extrabold relative top-8 right-4 text-gray-300 z-0">
                 2
               </div>
@@ -109,7 +109,7 @@ export default function Home() {
                 ビンゴ大会等の新歓イベント情報も流れてくる。CASるの日常であるボイスチャットでの雑談も！
               </p>
             </div>
-            <div>
+            <div className="max-w-2xs">
               <div className="text-9xl font-extrabold relative top-8 right-4 text-gray-300 z-0">
                 3
               </div>
@@ -123,13 +123,13 @@ export default function Home() {
           </div>
           <div className="flex justify-center mt-4">
             <Button
-            href="https://discord.gg/57rZ3rM6BE"
-            target="_blank"
-            rel="noopener noreferrer"
-as={Link}
-          >
-            新歓サーバーに参加
-          </Button>
+              href="https://discord.gg/57rZ3rM6BE"
+              target="_blank"
+              rel="noopener noreferrer"
+              as={Link}
+            >
+              新歓サーバーに参加
+            </Button>
           </div>
         </Section>
       </div>
