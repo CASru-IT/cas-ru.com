@@ -20,7 +20,7 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/constitution">会則</Link>
+          <Link href="/cas-ru-constitution.pdf">会則</Link>
         </li>
       </ul>
     </header>
