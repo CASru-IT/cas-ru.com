@@ -12,6 +12,8 @@ export const GROUP_INTRODUCTION_DIR = path.join(
   "src/groupIntroduction",
 );
 
+const SAFE_GROUP_NAME_REGEX = /^[a-zA-Z0-9_-]+$/;
+
 type GroupIntroductionFrontMatter = {
   name: string;
   icon: string;
@@ -35,7 +37,8 @@ export function getAllGroupName() {
   if (files) {
     return files
       .filter((fileName) => fileName.endsWith(".md"))
-      .map((fileName) => fileName.split(".")[0]);
+      .map((fileName) => fileName.split(".")[0])
+      .filter((groupName) => SAFE_GROUP_NAME_REGEX.test(groupName));
   } else {
     return [];
   }

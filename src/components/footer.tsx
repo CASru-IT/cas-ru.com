@@ -27,7 +27,9 @@ export default function Footer() {
                     key={name}
                     className="w-5/12 text-sm font-medium text-nowrap grow"
                   >
-                    <Link href={`/groups/${name}`}>{info.name}</Link>
+                    <Link href={`/groups/${encodeURIComponent(name)}`}>
+                      {info.name}
+                    </Link>
                   </li>
                 );
               })}
