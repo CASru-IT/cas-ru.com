@@ -24,7 +24,7 @@ export default async function Groups({
       <Image
         src={groupInfo.header ? groupInfo.header : groupInfo.icon}
         alt={groupInfo.name}
-        className="w-full max-h-96 h-2/3 object-cover"
+        className="w-full max-h-96 h-[66vh] object-cover"
         width={1200}
         height={600}
       />
@@ -41,7 +41,7 @@ export default async function Groups({
         </div>
       </h1>
       <div
-        className="max-w-2xl mx-auto p-4
+        className="max-w-2xl mx-auto p-4 min-h-[33vh]
         [&_h1]:text-2xl [&_h1]:font-medium [&_h1]:mb-4 [&_h1]:mt-4
         [&_h2]:text-xl [&_h2]:font-medium [&_h2]:mb-3 [&_h2]:mt-3
         [&_h3]:text-lg [&_h3]:font-medium [&_h3]:mb-2 [&_h3]:mt-2
