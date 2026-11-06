@@ -11,7 +11,13 @@ export default function Header() {
           <Link href="/groups">班紹介</Link>
         </li>
         <li>
-          <Link href="/about">CASる紹介</Link>
+          <Link
+            href="https://wiki.cas-ru.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wiki
+          </Link>
         </li>
         <li>
           <Link href="/constitution">会則</Link>
