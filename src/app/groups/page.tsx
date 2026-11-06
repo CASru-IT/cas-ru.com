@@ -38,7 +38,7 @@ function GroupCard({
         </h3>
         <div className="overflow-y-hidden max-h-32 my-2">{content}</div>
         <Button
-          href={`/groups/${groupId}`}
+          href={`/groups/${encodeURIComponent(groupId)}`}
           as={Link}
           className="ml-auto text-sm"
         >

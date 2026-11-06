@@ -75,7 +75,10 @@ export default function Home() {
               const groupInfo = getGroupInfo(groupName);
               return (
                 <div key={groupName} className="w-full">
-                  <Link href={`/groups/${groupName}`} className="">
+                  <Link
+                    href={`/groups/${encodeURIComponent(groupName)}`}
+                    className=""
+                  >
                     <Image
                       src={groupInfo.icon}
                       alt={groupInfo.name}
