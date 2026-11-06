@@ -9,7 +9,11 @@ export default function BackgroundImages({
   return (
     <div className="flex flex-col items-center w-full fixed -z-10 top-0 left-0">
       {(
-        new Array(Math.ceil(window.innerHeight / 128)).fill(null) as unknown[]
+        new Array(
+          Math.ceil(
+            typeof window !== "undefined" ? window.innerHeight / 128 : 10,
+          ),
+        ).fill(null) as unknown[]
       ).map((_, index) => (
         <div
           key={index}
