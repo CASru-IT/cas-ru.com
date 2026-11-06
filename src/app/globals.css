@@ -5,8 +5,8 @@ body {
 }
 
 @theme {
-  --animate-horizontal-scroll: sinSwipe 60s infinite;
-  --animate-horizontal-scroll-reverse: reverseSinSwipe 60s infinite;
+  --animate-horizontal-scroll: sinSwipe 50s infinite;
+  --animate-horizontal-scroll-reverse: reverseSinSwipe 50s infinite;
 
   @keyframes sinSwipe {
     0% {
