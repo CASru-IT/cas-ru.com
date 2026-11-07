@@ -17,7 +17,7 @@ export default function BackgroundImages({
       ).map((_, index) => (
         <div
           key={index}
-          className={`flex w-max flex-nowrap ${index % 2 === 0 ? "animate-horizontal-scroll" : "animate-horizontal-scroll-reverse"}`}
+          className={`flex w-max flex-nowrap will-change-transform backface-hidden ${index % 2 === 0 ? "animate-horizontal-scroll" : "animate-horizontal-scroll-reverse"}`}
         >
           {imageFiles
             .sort(() => Math.random() - 0.5)
@@ -28,7 +28,8 @@ export default function BackgroundImages({
                 alt={`Background ${index + 1}`}
                 width={1000}
                 height={500}
-                className="h-32 w-auto shrink-0"
+                className="h-32 w-auto shrink-0 contain-paint contain-layout"
+                style={{ imageRendering: "smooth" }}
               />
             ))}
         </div>
