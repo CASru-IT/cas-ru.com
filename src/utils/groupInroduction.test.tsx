@@ -57,13 +57,14 @@ describe("getGroupInfo", () => {
     }).toThrow();
   });
 
-  test("should return empty by empty file", () => {
+  test("should throw invalid front matter by empty file", () => {
     fs.mkdirSync(GROUP_INTRODUCTION_DIR, { recursive: true });
     const path = join(GROUP_INTRODUCTION_DIR, "anime.md");
     fs.writeFileSync(path, "");
 
-    const groupInfo = getGroupInfo("anime");
-    expect(groupInfo).toEqual({});
+    expect(() => {
+      getGroupInfo("anime");
+    }).toThrow();
   });
 
   test("should return correct info", () => {
@@ -73,11 +74,17 @@ describe("getGroupInfo", () => {
       path,
       `---
 name: anime
+icon: /groups/icon/anime.png
+header: /groups/header/anime.jpg
 ---`,
     );
 
     const groupInfo = getGroupInfo("anime");
-    expect(groupInfo).toStrictEqual({ name: "anime" });
+    expect(groupInfo).toStrictEqual({
+      name: "anime",
+      icon: "/groups/icon/anime.png",
+      header: "/groups/header/anime.jpg"
+    });
   });
 });
 
