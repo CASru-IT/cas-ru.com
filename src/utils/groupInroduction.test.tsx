@@ -2,7 +2,7 @@ import { fs, vol } from "memfs";
 import { join } from "path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Fragment } from "react/jsx-runtime";
-import { beforeEach, describe, expect, it, test, vi } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 import {
   GROUP_INTRODUCTION_DIR,
   getAllGroupName,
